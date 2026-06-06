@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RP Ngoma College — GIS Digital Map Explorer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<div class="hero" id="top">
+  <div class="hero-badge">GIS Capstone Project — Rwanda Polytechnic · Ngoma College</div>
+  <h1>Digital Campus<span>Map Explorer</span></h1>
+  <p class="hero-sub">
+    Establishing a Digital Map for Campus Infrastructures and Utilities Management
+    using GIS &amp; DGPS at RP Ngoma College, Kibungo Sector, Ngoma District.
+  </p>
+  <div class="hero-meta">
+    <div class="meta-item">
+      <div class="meta-num">4</div>
+      <div class="meta-label">Map Layers</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-num">36S</div>
+      <div class="meta-label">UTM Zone</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-num">1585m</div>
+      <div class="meta-label">Min Elevation</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-num">1630m</div>
+      <div class="meta-label">Max Elevation</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-num">489k</div>
+      <div class="meta-label">Budget (RWF)</div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Explore
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     STICKY NAV
+══════════════════════════════════════════ -->
+<nav>
+  <div class="nav-logo">Ngoma GIS</div>
+  <ul class="nav-tabs">
+    <li class="nav-tab active" onclick="navScrollTo('maps')">Maps</li>
+    <li class="nav-tab" onclick="navScrollTo('about')">About</li>
+    <li class="nav-tab" onclick="navScrollTo('objectives')">Objectives</li>
+    <li class="nav-tab" onclick="navScrollTo('methodology')">Methodology</li>
+    <li class="nav-tab" onclick="navScrollTo('schedule')">Schedule</li>
+    <li class="nav-tab" onclick="navScrollTo('projection')">Technical</li>
+    <li class="nav-tab" onclick="navScrollTo('references')">References</li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     MAPS
+══════════════════════════════════════════ -->
+<section id="maps">
+  <div class="section-label">Cartographic Outputs</div>
+  <h2 class="section-title">Explore the Maps</h2>
+  <p class="section-desc">
+    Click any map to open a detailed view with descriptions, key features, and technical
+    metadata. Use arrow keys or the navigation buttons to move between maps.
+  </p>
+  <div class="maps-grid" id="maps-grid"></div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════
+     ABOUT / ABSTRACT
+══════════════════════════════════════════ -->
+<section id="about">
+  <div class="section-label">Capstone Project · Abstract</div>
+  <h2 class="section-title">About This Project</h2>
+  <p class="section-desc">
+    A final-year Geomatics Technology capstone by <strong>BYIRINGIRO Jean Bosco</strong>
+    (Reg. 25RP18520), supervised by MEng. MUTIMUCYEYE Marie Grace — Academic Year 2025–2026.
+  </p>
+
+  <div class="abstract-block">
+    <p>
+      The rapid expansion of campus facilities at RP Ngoma College — including academic buildings,
+      administrative blocks, roads, water supply systems, electricity networks, drainage lines,
+      and communication infrastructure — has increased the need for an accurate, up-to-date,
+      and easily accessible spatial information system.
+    </p>
+    <p>
+      Currently, much of the infrastructure information is managed through manual records and
+      paper-based maps, which are prone to inaccuracies, data loss, and inefficiency in
+      maintenance planning and decision-making.
+    </p>
+    <p>
+      This project develops a comprehensive digital campus map using Geographic Information Systems
+      (GIS) integrated with Digital Global Positioning System (DGPS) technology to collect,
+      analyze, store, and visualize spatial and attribute data related to campus infrastructure
+      and utilities. The resulting digital map supports efficient infrastructure management,
+      maintenance scheduling, emergency response planning, resource allocation, and future
+      campus planning — serving as a model for other educational institutions seeking
+      "smart campus" status.
+    </p>
+    <div class="keywords">
+      <span class="keyword">Digital Map</span>
+      <span class="keyword">Campus Infrastructures</span>
+      <span class="keyword">Utilities Management</span>
+      <span class="keyword">GIS</span>
+      <span class="keyword">DGPS</span>
+      <span class="keyword">Spatial Data</span>
+      <span class="keyword">Attribute Data</span>
+      <span class="keyword">ArcGIS</span>
+    </div>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">📍</div>
+      <div class="feature-name">Administrative Hierarchy</div>
+      <div class="feature-text">Spatial drill-down from Ngoma District → Kibungo Sector → Karenge Cell → Ihuriro Village → College campus.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏔️</div>
+      <div class="feature-name">Terrain Analysis</div>
+      <div class="feature-text">Contour lines at 5 m intervals reveal a 45 m elevation range (1,585–1,630 m), typical of Rwanda's hilly landscape.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🛰️</div>
+      <div class="feature-name">DGPS Georeferencing</div>
+      <div class="feature-text">Google Earth imagery aligned to real-world UTM coordinates using 4 ground control points (P1–P4) with sub-metre accuracy.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏗️</div>
+      <div class="feature-name">Campus Digitization</div>
+      <div class="feature-text">30+ campus features digitized: workshops, dormitories, libraries, roads, utilities, gardens, and infrastructure elements.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎨</div>
+      <div class="feature-name">2D &amp; 3D Rendering</div>
+      <div class="feature-text">Same spatial data presented in both planimetric 2D for analysis and photorealistic 3D for visual communication and fly-through.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🗄️</div>
+      <div class="feature-name">GIS Geodatabase</div>
+      <div class="feature-text">Structured geodatabase with thematic layers: buildings, roads, water pipelines, sewers, electrical lines, and green spaces.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════
+     OBJECTIVES
+══════════════════════════════════════════ -->
+<section id="objectives">
+  <div class="section-label">Research Design</div>
+  <h2 class="section-title">Objectives &amp; Research Questions</h2>
+  <p class="section-desc">
+    The study is driven by a general objective and three specific objectives, each
+    corresponding to a deliverable output of the GIS mapping project.
+  </p>
+
+  <div class="objectives-grid">
+    <div class="obj-card">
+      <div class="obj-icon">🎯</div>
+      <div class="obj-title">General Objective</div>
+      <div class="obj-text">Develop a comprehensive digital campus map using GIS integrated with DGPS technology to collect, analyze, store, and visualize spatial and attribute data related to campus infrastructure and utilities at RP Ngoma College.</div>
+    </div>
+    <div class="obj-card">
+      <div class="obj-icon">📡</div>
+      <div class="obj-title">Specific Objective 1</div>
+      <div class="obj-text">Collect and geo-reference the spatial locations of all major campus facilities and utilities using DGPS and field surveying techniques.</div>
+    </div>
+    <div class="obj-card">
+      <div class="obj-icon">🗃️</div>
+      <div class="obj-title">Specific Objective 2</div>
+      <div class="obj-text">Design and develop a GIS database for storing and managing spatial and attribute data of campus infrastructure (Building_ID, Type, Year_Built, Floors, Utility layers, etc.).</div>
+    </div>
+    <div class="obj-card">
+      <div class="obj-icon">🖥️</div>
+      <div class="obj-title">Specific Objective 3</div>
+      <div class="obj-text">Produce a digital campus map and interactive GIS platform that enables users to easily visualize and locate facilities within Ngoma College.</div>
+    </div>
+    <div class="obj-card">
+      <div class="obj-icon">🏛️</div>
+      <div class="obj-title">Institutional Significance</div>
+      <div class="obj-text">Provides RP Ngoma College with an official digital spatial database to support maintenance planning, expansion decisions, and emergency response.</div>
+    </div>
+    <div class="obj-card">
+      <div class="obj-icon">🌍</div>
+      <div class="obj-title">Public Significance</div>
+      <div class="obj-text">Serves as a replicable model for other Rwandan educational institutions seeking to modernize infrastructure management through geospatial technologies.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════
+     METHODOLOGY
+══════════════════════════════════════════ -->
+<section id="methodology">
+  <div class="section-label">Chapter 3 · Methodology</div>
+  <h2 class="section-title">Data Acquisition &amp; Workflow</h2>
+  <p class="section-desc">
+    A multi-phase approach combining primary DGPS field surveying with secondary data
+    digitization, processed in ArcGIS 10.7 to produce the final thematic map outputs.
+  </p>
+
+  <div class="method-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div>
+        <div class="step-title">Planning &amp; Preparation</div>
+        <div class="step-text">Define all required data layers and attribute structures in the GIS project. Prepare field data collection forms. Conduct a preliminary reconnaissance to understand campus layout and identify data collection challenges.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div>
+        <div class="step-title">Primary Data Collection — DGPS Field Survey</div>
+        <div class="step-text">Systematic walk-over survey of the entire campus using high-precision DGPS receivers to collect coordinates (x, y, z). Features captured: Point features (manholes, water valves, electric poles, fire hydrants), Line features (road centrelines, utility routes, drainage channels), Polygon features (building footprints, parking lots, sports fields).</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div>
+        <div class="step-title">Secondary Data Collection — Document Digitization</div>
+        <div class="step-text">Gathering existing campus site plans, architectural drawings, and utility schematics from RP Ngoma College administration. Open-source satellite imagery (Google Earth, Sentinel Hub) geo-referenced and used as a base for on-screen digitizing in GIS software.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div>
+        <div class="step-title">Data Integration &amp; Georeferencing</div>
+        <div class="step-text">Import DGPS data and digitized secondary data into ArcGIS 10.7. Register raster images using Ground Control Points (GCPs) — a process known as rubber sheeting or georeferencing. Coordinate system: WGS 84 / UTM Zone 35S (EPSG:32735) for national consistency.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <div>
+        <div class="step-title">GIS Database Development</div>
+        <div class="step-text">Create a spatial database with different layers for each infrastructure category. Link attribute data to spatial features (Building_ID, Name, Type, Year_Built, Floors, Department; Utility_ID, Type, Material, Diameter, Depth, Installation_Date). Store as GeoPackage or Shapefile format.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">06</div>
+      <div>
+        <div class="step-title">Data Verification &amp; Quality Assurance</div>
+        <div class="step-text">Cross-check field data with existing plans to resolve discrepancies. Editing and verification addresses: incompleteness of spatial data, locational placement errors, distortion, and incorrect linkages between spatial and attribute data.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">07</div>
+      <div>
+        <div class="step-title">Digital Map Production &amp; Spatial Analysis</div>
+        <div class="step-text">Produce 2D planimetric and 3D perspective maps with standard cartographic elements. Apply overlay analysis, buffer analysis (distances between utilities and buildings), and network analysis (road/pathway connectivity). Symbolize layers with appropriate colors, patterns, and legends.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════
+     SCHEDULE
+══════════════════════════════════════════ -->
+<section id="schedule">
+  <div class="section-label">Project Timeline</div>
+  <h2 class="section-title">Schedule &amp; Budget</h2>
+  <p class="section-desc">
+    The project spans approximately 7 weeks across 9 phases, with a total estimated budget
+    of 489,500 RWF covering all fieldwork, software, and reporting costs.
+  </p>
+
+  <div class="section-label" style="margin-bottom:0.5rem">Project Schedule</div>
+  <div class="schedule-table-wrap">
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>Phase</th>
+          <th>Key Activities</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="phase">1. Field Preparation</td>
+          <td>Reconnaissance survey, DGPS setup, data collection forms</td>
+          <td class="duration">1 Week</td>
+        </tr>
+        <tr>
+          <td class="phase">2. Field Data Collection</td>
+          <td>DGPS surveying of buildings, utilities, roads</td>
+          <td class="duration">1 Week</td>
+        </tr>
+        <tr>
+          <td class="phase">3. Data Processing</td>
+          <td>Data download, correction, geo-referencing, cleaning</td>
+          <td class="duration">4 Days</td>
+        </tr>
+        <tr>
+          <td class="phase">4. GIS Database Development</td>
+          <td>Database design, layer creation, attribute linking</td>
+          <td class="duration">2 Weeks</td>
+        </tr>
+        <tr>
+          <td class="phase">5. Digital Map Production</td>
+          <td>Map symbolization, labeling, layout design</td>
+          <td class="duration">1 Week</td>
+        </tr>
+        <tr>
+          <td class="phase">6. Interactive GIS Platform</td>
+          <td>Development of interactive map and querying tools</td>
+          <td class="duration">2 Days</td>
+        </tr>
+        <tr>
+          <td class="phase">7. Results Analysis</td>
+          <td>Accuracy assessment, validation, interpretation</td>
+          <td class="duration">1 Week</td>
+        </tr>
+        <tr>
+          <td class="phase">8. Report Writing</td>
+          <td>Writing chapters, editing, formatting</td>
+          <td class="duration">3 Days</td>
+        </tr>
+        <tr>
+          <td class="phase">9. Submission &amp; Defense</td>
+          <td>Final submission, presentation, defense</td>
+          <td class="duration">2 Days</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-label" style="margin-top:3rem;margin-bottom:0.5rem">Estimated Budget</div>
+  <div class="budget-table-wrap">
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>Activity</th>
+          <th>Description</th>
+          <th>Cost (RWF)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1. Field Preparation</td>
+          <td>Transport, stationery, field forms, notebooks, phone communication</td>
+          <td>40,000</td>
+        </tr>
+        <tr>
+          <td>2. Field Data Collection</td>
+          <td>DGPS rental/usage, field transport, meals, safety gear</td>
+          <td>120,000</td>
+        </tr>
+        <tr>
+          <td>3. Data Processing</td>
+          <td>Computer usage, electricity, internet bundles, external storage</td>
+          <td>50,000</td>
+        </tr>
+        <tr>
+          <td>4. GIS Database Development</td>
+          <td>ArcGIS academic license, data organization, system setup</td>
+          <td>30,000</td>
+        </tr>
+        <tr>
+          <td>5. Digital Map Production</td>
+          <td>Printing draft maps, cartographic layout, color printing</td>
+          <td>35,000</td>
+        </tr>
+        <tr>
+          <td>6. Interactive GIS Platform</td>
+          <td>Internet costs, ArcGIS Online / Leaflet tools, testing</td>
+          <td>60,000</td>
+        </tr>
+        <tr>
+          <td>7. Results Analysis</td>
+          <td>Accuracy assessment, validation visits, supervisor consultations</td>
+          <td>25,000</td>
+        </tr>
+        <tr>
+          <td>8. Report Writing</td>
+          <td>Printing drafts, binding, editing, stationery</td>
+          <td>45,000</td>
+        </tr>
+        <tr>
+          <td>9. Submission &amp; Defense</td>
+          <td>Final printing and binding, presentation materials, transport</td>
+          <td>40,000</td>
+        </tr>
+        <tr>
+          <td>10. Contingency (10%)</td>
+          <td>Unexpected expenses</td>
+          <td>44,500</td>
+        </tr>
+        <tr>
+          <td><strong>TOTAL ESTIMATED BUDGET</strong></td>
+          <td></td>
+          <td><strong>489,500 RWF</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════
+     TECHNICAL / PROJECTION
+══════════════════════════════════════════ -->
+<section id="projection">
+  <div class="section-label">Technical Metadata</div>
+  <h2 class="section-title">Map Projection &amp; CRS Parameters</h2>
+  <p class="section-desc">
+    All maps share a common coordinate reference system ensuring accurate spatial
+    measurements and perfect layer alignment across outputs.
+  </p>
+
+  <div class="proj-block">
+    <div class="proj-block-title">Coordinate Reference System — All Maps</div>
+    <table class="proj-table">
+      <tr><td>Projection</td><td>Transverse Mercator (UTM)</td></tr>
+      <tr><td>UTM Zone</td><td>36S — covers Eastern Africa</td></tr>
+      <tr><td>False Easting</td><td>500,000.0 m</td></tr>
+      <tr><td>False Northing</td><td>5,000,000.0 m</td></tr>
+      <tr><td>Central Meridian</td><td>30.0°</td></tr>
+      <tr><td>Scale Factor</td><td>0.9999</td></tr>
+      <tr><td>Latitude of Origin</td><td>0.0° (Equator)</td></tr>
+      <tr><td>Linear Unit</td><td>Metre (1.0)</td></tr>
+      <tr><td>Coordinate System</td><td>WGS 84 / UTM Zone 35S · EPSG:32735</td></tr>
+      <tr><td>Campus Location</td><td>~2°8′S, 30°32′E · Ihuriro Village, Karenge Cell</td></tr>
+      <tr><td>Elevation Range</td><td>1,585 m – 1,630 m (45 m relief)</td></tr>
+      <tr><td>Primary Software</td><td>ArcGIS 10.7 · Google Earth</td></tr>
+      <tr><td>Data Formats</td><td>Shapefile (.shp) · GeoPackage (.gpkg)</td></tr>
+    </table>
+  </div>
+
+  <div class="proj-block" style="margin-top:1.5rem">
+    <div class="proj-block-title">Ground Control Points (Georeferencing)</div>
+    <table class="proj-table">
+      <tr><td>P1</td><td>2°8′47.57″S &nbsp; 30°32′35.57″E</td></tr>
+      <tr><td>P2</td><td>2°8′59.11″S &nbsp; 30°32′39.49″E</td></tr>
+      <tr><td>P3</td><td>2°8′57.61″S &nbsp; 30°32′29.65″E</td></tr>
+      <tr><td>P4</td><td>2°8′49.32″S &nbsp; 30°32′28.29″E</td></tr>
+    </table>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ══════════════════════════════════════════
+     REFERENCES
+══════════════════════════════════════════ -->
+<section id="references">
+  <div class="section-label">Bibliography</div>
+  <h2 class="section-title">References</h2>
+  <p class="section-desc">Academic and technical sources cited in the capstone proposal.</p>
+
+  <ol class="ref-list">
+    <li><span class="ref-num">[1]</span><span>I. O. Nwabueze, "Digital map of Enugu State University of Science and Technology (ESUT) Agbani."</span></li>
+    <li><span class="ref-num">[2]</span><span>L. Ngoma, "Development of a framework for graduate attributes and curriculum alignment: a case study for a diploma in electrical engineering at a university of technology in South Africa," 2024.</span></li>
+    <li><span class="ref-num">[3]</span><span>A. K. Yeung and G. B. Hall, <em>Spatial database systems: Design, implementation and project management</em>, vol. 87, Springer Science &amp; Business Media, 2007.</span></li>
+    <li><span class="ref-num">[4]</span><span>J. Martin, <em>The sustainable university: Green goals and new challenges for higher education leaders</em>, JHU Press, 2012.</span></li>
+    <li><span class="ref-num">[5]</span><span>M. Halfawy, D. Pyzoha, and T. El-Hosseiny, "An integrated framework for GIS-based civil infrastructure management systems," <em>CSCE Conference, Montreal, Canada</em>, 2002.</span></li>
+    <li><span class="ref-num">[6]</span><span>C. Paige, "Unlocking Organizational Potential for GIS Collaboration in Higher Education," The Claremont Graduate University, 2025.</span></li>
+    <li><span class="ref-num">[7]</span><span>T. Chagnon-Lessard et al., "Smart campuses: extensive review of the last decade of research and current challenges," <em>IEEE Access</em>, vol. 9, pp. 124200–124234, 2021.</span></li>
+    <li><span class="ref-num">[8]</span><span>B. Atulomah, "Perceived records management practice and decision making among university administrators in Nigeria," <em>Library Philosophy and Practice</em>, 2011.</span></li>
+    <li><span class="ref-num">[9]</span><span>S. Pandey et al., "GIS and DGPS System for Enhanced Productivity in Horticultural Crops," in <em>Smart Horticulture Production</em>, Apple Academic Press, 2026, pp. 121–145.</span></li>
+    <li><span class="ref-num">[10]</span><span>S. N. B. Madhu et al., "Geographic Information Systems (GIS) and its Applications," <em>Multidisciplinary</em>, p. 127, 2023.</span></li>
+  </ol>
+</section>
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+  <strong>RP Ngoma College — GIS Digital Map Explorer</strong><br>
+  Capstone Project: "Establishing a Digital Map for Campus Infrastructures and Utilities Management using GIS and DGPS"<br>
+  Author: <strong>BYIRINGIRO Jean Bosco</strong> · Reg. No. 25RP18520<br>
+  Supervisor: MEng. MUTIMUCYEYE Marie Grace · Dept. Civil Engineering, Option Geomatics Technology<br>
+  RP Ngoma College · Kibungo Sector, Ngoma District, Eastern Province, Rwanda · Academic Year 2025–2026
+</footer>
+
+<!-- ══════════════════════════════════════════
+     LIGHTBOX
+══════════════════════════════════════════ -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <div class="lightbox-inner">
+    <div class="lightbox-img-wrap">
+      <img id="lb-img" src="" alt="Map view">
+      <div class="zoom-controls">
+        <button class="zoom-btn" onclick="zoomImg(1.25)" title="Zoom in">+</button>
+        <button class="zoom-btn" onclick="zoomImg(0.8)"  title="Zoom out">−</button>
+        <button class="zoom-btn" onclick="resetZoom()"   title="Reset">⊡</button>
+      </div>
+    </div>
+    <div class="lightbox-panel">
+      <div>
+        <div class="lb-num"   id="lb-num"></div>
+        <div class="lb-title" id="lb-title"></div>
+      </div>
+      <div class="lb-divider"></div>
+      <div>
+        <div class="lb-section-head">Description</div>
+        <div class="lb-text" id="lb-desc"></div>
+      </div>
+      <div>
+        <div class="lb-section-head">Key Features</div>
+        <ul class="lb-features" id="lb-features"></ul>
+      </div>
+      <div>
+        <div class="lb-section-head">Technical Details</div>
+        <div class="lb-facts" id="lb-facts"></div>
+      </div>
+      <div class="lb-nav">
+        <button class="lb-nav-btn" id="btn-prev" onclick="navigateMap(-1)">← Previous</button>
+        <button class="lb-nav-btn" id="btn-next" onclick="navigateMap(1)">Next →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════ -->
+<script src="app.js"></script>
+
+</body>
+</html>
