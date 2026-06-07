@@ -497,12 +497,19 @@
 <div class="lightbox" id="lightbox">
   <button class="lb-close" onclick="closeLightbox()">✕</button>
   <div class="lightbox-inner">
-    <div class="lightbox-img-wrap">
-      <img id="lb-img" src="" alt="Map view">
+    <div class="lightbox-img-outer">
+      <div class="lightbox-img-wrap" id="img-wrap">
+        <div class="lb-img-canvas" id="img-canvas">
+          <img id="lb-img" src="" alt="Map view" draggable="false">
+        </div>
+      </div>
       <div class="zoom-controls">
-        <button class="zoom-btn" onclick="zoomImg(1.25)" title="Zoom in">+</button>
-        <button class="zoom-btn" onclick="zoomImg(0.8)"  title="Zoom out">−</button>
-        <button class="zoom-btn" onclick="resetZoom()"   title="Reset">⊡</button>
+        <div class="zoom-controls-inner">
+          <button class="zoom-btn" onclick="zoomIn()"    title="Zoom in">+</button>
+          <span  class="zoom-level-label" id="zoom-label">100%</span>
+          <button class="zoom-btn" onclick="zoomOut()"   title="Zoom out">−</button>
+          <button class="zoom-btn" onclick="resetZoom()" title="Fit to screen" style="font-size:0.75rem;min-width:54px;letter-spacing:0.05em">FIT</button>
+        </div>
       </div>
     </div>
     <div class="lightbox-panel">
